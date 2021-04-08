@@ -1,0 +1,48 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>vue-todolist</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+
+        <link rel="stylesheet" href="style.css">
+
+        <script src="script.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="app" class="container">
+
+            <div class="logo">
+
+              <img src="https://www.boolean.careers/images/misc/logo.png" alt="">
+
+              <div class="label-logo">
+                TO DO LIST
+              </div>
+
+            </div>
+            <div class="new-todo">
+
+              <input v-model = "newTodo" @keyup.enter="clickNewTodo" class="todo" placeholder = "Inserisci qui il nuovo to do" type="text" name="" value="">
+              <button @click = "clickNewTodo" class= "" type="button" name="button">Aggiungi alla lista</button>
+
+            </div>
+            <div class="todos-container">
+              <ul v-if="todos.length > 0">
+                <li v-for="(todo, index) in todos" class="todo">
+                  {{todo}}
+                  <i @click="clickDeleteToDo(index)" class="fas fa-times"></i>
+
+                </li>
+              </ul>
+              <h2 v-else>Al momento non hai task. Riposati</h2>
+
+            </div>
+    </div>
+
+  </body>
+</html>
